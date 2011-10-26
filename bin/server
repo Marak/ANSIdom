@@ -7,41 +7,53 @@
 
 */
 
-var http  = require('http'),
-    fs    = require('fs'),
-    ANSIdom = require('../lib/ANSIdom');
 
+var ANSIdom = require('../lib/ANSIdom').ANSIdom,
+    http    = require('http'),
+    fs      = require('fs');
+
+var dom = new ANSIdom();
 
 //
 // Load a html template
 //
 var template = fs.readFileSync('./examples/index.html').toString();
 
-var ansiTemplate = ANSIdom.render(template);
-
-http.createServer(function(req, res){
+dom.init(function(err){
   
-  
-  switch (req.url) {
-    
-    case '/':
-      //
-      // Simple accept based routing, if text/html wasn't explicity sent,
-      // respond with text/plain and ANSI codes
-      //
-      if(req.headers.accept.indexOf('text/html') === -1) {
-        res.end('no html');
-      } else {
-        res.end(template);
-      }
-
-    break;
-    
-    default:
-      res.end('404');
-    break;
-    
+  if (err) {
+    throw err;
   }
-  
-  
-}).listen(8000);
+
+  http.createServer(function(req, res){
+
+
+    switch (req.url) {
+
+      case '/':
+        //
+        // Simple accept based routing, if text/html wasn't explicity sent,
+        // respond with text/plain and ANSI codes
+        //
+        if(req.headers.accept.indexOf('text/html') === -1) {
+          dom.render(template, res);
+          res.end();
+        } else {
+          res.end(template);
+        }
+
+      break;
+
+      default:
+        res.end('404');
+      break;
+
+    }
+
+
+  }).listen(8000);
+
+
+});
+
+
