@@ -1,0 +1,47 @@
+/*
+
+ Very basic example of ASNIDom http templating server
+ 
+ This server will respond with either html or ANSI codes depending on the user-agent and accept headers
+ of the incoming request
+
+*/
+
+var http  = require('http'),
+    fs    = require('fs'),
+    ANSIdom = require('../lib/ANSIdom');
+
+
+//
+// Load a html template
+//
+var template = fs.readFileSync('./examples/index.html').toString();
+
+var ansiTemplate = ANSIdom.render(template);
+
+http.createServer(function(req, res){
+  
+  
+  switch (req.url) {
+    
+    case '/':
+      //
+      // Simple accept based routing, if text/html wasn't explicity sent,
+      // respond with text/plain and ANSI codes
+      //
+      if(req.headers.accept.indexOf('text/html') === -1) {
+        res.end('no html');
+      } else {
+        res.end(template);
+      }
+
+    break;
+    
+    default:
+      res.end('404');
+    break;
+    
+  }
+  
+  
+}).listen(8000);

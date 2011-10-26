@@ -1,0 +1,16 @@
+var ANSIdom = require('../lib/ANSIdom').ANSIdom,
+    fs      = require('fs');
+
+var dom = new ANSIdom();
+
+var template = fs.readFileSync('./examples/index.html').toString();
+
+dom.init(function(err){
+  
+  if (err) {
+    throw err;
+  }
+
+  dom.render(template, process);
+
+});
