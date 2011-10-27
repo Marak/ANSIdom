@@ -1,9 +1,10 @@
-# ANSIdom 
+# ANSIdom v0.0.1
 
-## a quick and dirty DOM implementation in ANSI escape codes
+##  a quick and dirty DOM implementation in ANSI escape codes
 
 **share templates between the browser and the terminal** 
 
+*note: the current DOM implementation is a hack, at best. expect it to break, badly.*
 
 ## Installation
 
