@@ -6,6 +6,10 @@
 
 *note: the current DOM implementation is a hack, at best. expect it to break, badly.*
 
+## Live Demo
+
+[http://ohh.io/ANSIdom](http://ohh.io/ANSIdom)
+
 ## Installation
 
 
