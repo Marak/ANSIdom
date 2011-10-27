@@ -3,7 +3,7 @@ var ANSIdom = require('../lib/ANSIdom').ANSIdom,
 
 var dom = new ANSIdom();
 
-var template = fs.readFileSync('./examples/index.html').toString();
+var template = fs.readFileSync('./templates/index.html').toString();
 
 dom.init(function(err){
   

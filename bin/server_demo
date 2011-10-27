@@ -17,7 +17,7 @@ var dom = new ANSIdom();
 //
 // Load a html template
 //
-var template = fs.readFileSync('./examples/index.html').toString();
+var template = fs.readFileSync('./templates/index.html').toString();
 
 dom.init(function(err){
   
