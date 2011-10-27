@@ -8,7 +8,14 @@
 
 ## Live Demo
 
+**browser demo**
 [http://ohh.io/ANSIdom](http://ohh.io/ANSIdom)
+
+**terminal demo**
+
+     curl ohh.io/ANSIdom
+
+*these both share the same HTML template*
 
 ## Installation
 
