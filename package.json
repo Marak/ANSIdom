@@ -1,0 +1,20 @@
+{
+    "name" : "ANSIdom",
+    "version" : "0.0.1",
+    "author": "Marak Squires <marak.squires@gmail.com>",
+    "description" : "a quick and dirty DOM implementation in ANSI escape codes",
+    "main": "./lib/ANSIdom",
+    "repository" : {
+        "type" : "git",
+        "url" : "https://github.com/marak/ANSIdom.git"
+    },
+    "dependencies" : {
+      "jsdom": "0.2.x",
+      "colors" : "*",
+      "charm" : "*"
+    },
+  "license" : "MIT",
+    "engine" : {
+        "node" : ">=0.4"
+    }
+}
