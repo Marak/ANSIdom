@@ -11,7 +11,8 @@
     "dependencies" : {
       "jsdom": "0.2.x",
       "colors" : "*",
-      "charm" : "*"
+      "charm" : "*",
+      "wordwrap": "*"
     },
   "license" : "MIT",
     "engine" : {
